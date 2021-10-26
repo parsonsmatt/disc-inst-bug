@@ -1,0 +1,50 @@
+name:                disc-inst-bug
+version:             0.1.0.0
+github:              "parsonsmatt/disc-inst-bug"
+license:             BSD3
+author:              "Matt Parsons"
+maintainer:          "parsonsmatt@gmail.com"
+copyright:           "Matt Parsons"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/parsonsmatt/disc-inst-bug#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- discover-instances
+- template-haskell
+
+library:
+  source-dirs: src
+
+executables:
+  disc-inst-bug-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - disc-inst-bug
+
+tests:
+  disc-inst-bug-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - disc-inst-bug
